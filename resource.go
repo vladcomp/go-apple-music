@@ -25,10 +25,6 @@ func (r Resource) Parse() (resource interface{}, err error) {
 	switch r.Type() {
 	case "albums":
 		resource = &Album{}
-	case "library-music-videos":
-		resource = &LibraryMusicVideo{}
-	case "library-songs":
-		resource = &LibrarySong{}
 	case "music-videos":
 		resource = &MusicVideo{}
 	case "playlists":
@@ -67,4 +63,6 @@ type PlayParameters struct {
 	Id        string `json:"id"`
 	Kind      string `json:"kind"`
 	IsLibrary bool   `json:"isLibrary,omitempty"` // Undocumented, Used in LibraryPlaylist.
+	Reporting bool   `json:"reporting,omitempty"`
+	CatalogID string `json:"catalogId,omitempty"`
 }
